@@ -20,7 +20,7 @@ pipeline {
                 stage('Test') {
                     steps {
                         sh 'podman run -it --rm localhost/$IMAGE_NAME which rstudio'
-                        sh 'podman run -it --rm test R -e "library(\"ggrepel\");library(\"ggthemes\");library(\"anytime\");library(\"haven\");library(\"knitr\");library(\"lmtest\");library(\"lubridate\");library(\"pacman\");library(\"png\");library(\"proftools\");library(\"readxl\");library(\"rvest\");library(\"viridis\");library(\"recessionShadingPackage\");library(\"UCSB.ECON.145.Package\")"'
+                        sh 'podman run -it --rm localhost/$IMAGE_NAME R -e "library(\"ggrepel\");library(\"ggthemes\");library(\"anytime\");library(\"haven\");library(\"knitr\");library(\"lmtest\");library(\"lubridate\");library(\"pacman\");library(\"png\");library(\"proftools\");library(\"readxl\");library(\"rvest\");library(\"viridis\");library(\"recessionShadingPackage\");library(\"UCSB.ECON.145.Package\")"'
                         sh 'podman run -d --name=$IMAGE_NAME --rm -p 8888:8888 localhost/$IMAGE_NAME start-notebook.sh --NotebookApp.token="jenkinstest"'
                         sh 'sleep 10 && curl -v http://localhost:8888/rstudio?token=jenkinstest 2>&1 | grep -P "HTTP\\S+\\s[1-3][0-9][0-9]\\s+[\\w\\s]+\\s*$"'
                         sh 'curl -v http://localhost:8888/lab?token=jenkinstest 2>&1 | grep -P "HTTP\\S+\\s200\\s+[\\w\\s]+\\s*$"'
