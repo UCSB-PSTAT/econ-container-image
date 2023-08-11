@@ -5,7 +5,7 @@ LABEL maintainer="LSIT Systems <lsitops@ucsb.edu>"
 USER root
 
 RUN apt update -qq && \
-    apt install libnetcdf-dev gcc-multilib -y && \
+    apt install libnetcdf-dev libc6-dev -y && \
     apt-get clean
 
 # Removing some packages that are probably duplicated
