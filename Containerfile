@@ -10,7 +10,7 @@ RUN apt update -qq && \
     apt-get clean
 
 #Just install painful things with mamba. 
-RUN mamba install -y -c conda-forge --freeze-installed netcdf4 && \
+RUN mamba install -y -c conda-forge --freeze-installed r-ncdf4 && \
     mamba clean --all
 
 RUN R -e "install.packages(c('anytime', 'berryFunctions', 'broom', 'devtools', 'fixest', 'freshr', 'ggplot2', 'ggrepel', 'ggthemes', 'gt', 'haven', 'here', 'httr', 'janitor', 'jasonlite', 'kableExtra', 'knitr', 'lmtest', 'lubridate', 'lucid', 'magritter', 'maps', 'modelsummary', 'Ncmisc', 'nycflights13', 'pacman', 'pfdftools', 'png', 'polite', 'proftools', 'quantmod', 'readxl', 'rvest', 'sandwich', 'scales', 'stargazer', 'tabulizer', 'tidyverse', 'titanic', 'usethis', 'viridis'), repos = 'http://cran.us.r-project.org', Ncpus = parallel::detectCores())"
