@@ -13,7 +13,7 @@ RUN apt update -qq && \
 RUN mamba install -y -c conda-forge --freeze-installed r-ncdf4 && \
     mamba clean --all
 
-RUN R -e "install.packages(c('anytime', 'berryFunctions', 'broom', 'devtools', 'fixest', 'freshr', 'ggplot2', 'ggrepel', 'ggthemes', 'gt', 'haven', 'here', 'httr', 'janitor', 'kableExtra', 'knitr', 'lmtest', 'lubridate', 'lucid', 'maps', 'modelsummary', 'nycflights13', 'pacman', 'png', 'polite', 'proftools', 'quantmod', 'readxl', 'rvest', 'sandwich', 'scales', 'stargazer', 'tidyverse', 'titanic', 'usethis', 'viridis'), repos = 'http://cran.us.r-project.org', Ncpus = parallel::detectCores())"
+RUN R -e "install.packages(c('anytime', 'berryFunctions', 'broom', 'devtools', 'fixest', 'freshr', 'ggplot2', 'ggrepel', 'ggthemes', 'gt', 'haven', 'here', 'httr', 'janitor', 'kableExtra', 'knitr', 'lmtest', 'lubridate', 'lucid', 'maps', 'modelsummary', 'nycflights13', 'pacman', 'png', 'polite', 'proftools', 'quantmod', 'readxl', 'rvest', 'sandwich', 'scales', 'stargazer', 'tidyverse', 'titanic', 'usethis', 'viridis'), repos = 'https://cran.us.r-project.org', Ncpus = parallel::detectCores())"
 
 
 
