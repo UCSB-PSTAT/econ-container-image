@@ -11,8 +11,9 @@ RUN apt update -qq && \
 
 #Just install painful things with mamba. 
 RUN mamba install -y -c conda-forge r-ncdf4 r-anytime r-berryFunctions r-broom r-devtools r-fixest r-fresh r-ggplot2 r-ggrepel r-ggthemes r-gt r-gt r-haven r-here r-httr r-janitor r-kableextra r-knitr r-lmtest r-lubridate r-maps r-modelsummary r-nycflights13 r-pacman r-pillar r-png r-polite r-proftools r-quantmod r-readxl r-rvest r-sandwich r-scales r-stargazer r-tidyverse r-titanic r-usethis r-viridis && \
-    mamba install -y -c r --freeze-installed r-lucid  && \
     mamba clean --all
+
+RUN R -e "install.packages(c('lucid'), repos = 'http://cran.us.r-project.org', Ncpus = parallel::detectCores())"
 
 # Copy in homebrewed packages and install them. 
 COPY ./*.tar.gz ./
