@@ -10,7 +10,7 @@ RUN apt update -qq && \
     apt-get clean
 
 #Just install painful things with mamba. 
-RUN mamba install -y -c r --freeze-installed r-ncdf4 r-anytime r-berryFunctions r-broom r-devtools r-fixest r-fresh r-ggplot2 r-ggrepel r-ggthemes r-gt r-gt r-haven r-here r-httr r-janitor r-kableextra r-knitr r-lmtest r-lubridate r-lucid r-maps r-modelsummary r-nycflights13 r-pacman r-png r-polite r-proftools r-quantmod r-readxl r-rvest r-sandwich r-scales r-stargazer r-tidyverse r-titanic r-usethis r-viridis && \
+RUN mamba install -y -c r r-ncdf4 r-anytime r-berryFunctions r-broom r-devtools r-fixest r-fresh r-ggplot2 r-ggrepel r-ggthemes r-gt r-gt r-haven r-here r-httr r-janitor r-kableextra r-knitr r-lmtest r-lubridate r-lucid r-maps r-modelsummary r-nycflights13 r-pacman r-png r-polite r-proftools r-quantmod r-readxl r-rvest r-sandwich r-scales r-stargazer r-tidyverse r-titanic r-usethis r-viridis && \
     mamba clean --all
 
 # Copy in homebrewed packages and install them. 
