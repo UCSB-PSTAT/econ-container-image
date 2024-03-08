@@ -10,12 +10,10 @@ RUN apt update -qq && \
     apt-get clean
 
 #Just install painful things with mamba. 
-RUN mamba install -y -c conda-forge --freeze-installed r-ncdf4 && \
+RUN mamba install -y -c conda-forge r-ncdf4 r-anytime r-berryFunctions r-broom r-devtools r-fixest r-ggplot2 r-ggrepel r-ggthemes r-gt r-gt r-haven r-here r-httr r-janitor r-kableextra r-knitr r-lmtest r-lubridate r-maps r-modelsummary r-nycflights13 r-pacman r-pillar r-png r-polite r-proftools r-quantmod r-readxl r-rvest r-sandwich r-scales r-stargazer r-tidyverse r-titanic r-usethis r-viridis && \
     mamba clean --all
 
-RUN R -e "install.packages(c('anytime', 'berryFunctions', 'broom', 'devtools', 'fixest', 'freshr', 'ggplot2', 'ggrepel', 'ggthemes', 'gt', 'haven', 'here', 'httr', 'janitor', 'kableExtra', 'knitr', 'lmtest', 'lubridate', 'lucid', 'maps', 'modelsummary', 'nycflights13', 'pacman', 'png', 'polite', 'proftools', 'quantmod', 'readxl', 'rvest', 'sandwich', 'scales', 'stargazer', 'tidyverse', 'titanic', 'usethis', 'viridis'), repos = 'http://cran.us.r-project.org', Ncpus = parallel::detectCores())"
-
-
+RUN R -e "install.packages(c('freshr', 'lucid'), repos = 'https://cloud.r-project.org/', Ncpus = parallel::detectCores())"
 
 # Copy in homebrewed packages and install them. 
 COPY ./*.tar.gz ./
