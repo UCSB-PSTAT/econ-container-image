@@ -19,5 +19,8 @@ RUN R -e "install.packages(c('freshr', 'lucid'), repos = 'https://cloud.r-projec
 COPY ./*.tar.gz ./
 RUN R -e "install.packages(c('recessionShadingPackage2023.tar.gz', 'UCSB.ECON.145.tar.gz'), repos = NULL, type='source')"
 
+# Enable Copilot for RStudio
+RUN echo "copilot-enabled=1" >> /etc/rstudio/rsession.conf
+
 USER $NB_USER
 
