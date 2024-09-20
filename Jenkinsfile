@@ -13,7 +13,7 @@ pipeline {
                     cloud 'rke-test'
                     inheritFrom 'podman'
                 }
-
+            }
             stages{
                 stage('Build') {
                     steps {
