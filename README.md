@@ -1,4 +1,2 @@
-# Container image source for <course>
-The latest version of this image can be obtained from dockerhub: https://hub.docker.com/r/ucsb/econ 
-  
-```podman pull ucsb/econ```
+# Container image source for ECON coursework
+The latest version of this image can be obtained by running `podman pull ucsb/econ:latest`
